@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSE - Votos</title>
+    <style>
+    #idade {
+    width: 50px;
+}
+    #res {
+    margin-top: 20px;
+    background: rgba(227, 227, 235, 0.664);
+    width: 500px;
+    align-content: center;
+}
+    section {
+    text-align: center;
+    background: rgba(95, 92, 92, 0.13);
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.356);
+    }       
+
+    body {
+    background:white;
+}
+    </style>
+</head>
+<body>
+    <section>
+    <img src="C:\Users\ASUS\Documents\Curso JS\Aula 12\urna.png" height=150px ></img>   
+    <h1>Tribunal Superior Eleitoral</h1>
+    <h3>Seja bem vindo(a)!</h3> 
+    <p>Data/Hora de entrada: <span id="dataehora"></span></p>
+    <div id='horas'></div>
+    <p>Veja se você precisa votar ou não.</p> </div>      
+    Digite sua idade: <input type="number" name="idade" id="idade">
+    <input type="button" value="Checar" onclick="verificar()" >
+    <div id= 'res'></div>
+    </section> 
+    
+
+    <script>
+        var data = new Date();
+        document.getElementById("dataehora").innerHTML = data.toLocaleString();
+
+        function verificar(){
+        var idade = window.document.getElementById('idade')
+        var res = window.document.getElementById('res')
+        var voto = (idade.value)
+            if (voto < 16){
+                res.innerHTML = "Não Vota."               
+        }   else if (voto < 18 || voto >= 65){
+                res.innerHTML = 'Voto opcional. Se desejar votar, leve o título de eleitor e documento de identificação.'
+        }   else {
+                res.innerHTML = "Voto Obrigatório. Leve o título de eleitor e documento de identificação."
+        }
+        }
+    </script>
+</body>
+</html>
