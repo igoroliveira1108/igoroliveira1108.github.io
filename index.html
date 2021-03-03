@@ -48,17 +48,28 @@
         document.getElementById("dataehora").innerHTML = data.toLocaleString();
 
         function verificar(){
-        var idade = window.document.getElementById('idade')
+        var idade = window.document.getElementById('idade').value
         var res = window.document.getElementById('res')
-        var voto = (idade.value)
-            if (voto < 16){
+            // Proibir idade passar de 100, idade 0 ou idade negativa.
+            if (idade > 100){
+                res.innerHTML = 'Não é permitido idade maior que 100.'
+            } else if (idade == 0){
+                res.innerHTML = 'A pessoa ainda não nasceu.'
+            }else if (idade < 1){
+                res.innerHTML = 'Não é permitido idade negativa.'
+            } else {
+                if (idade < 16){
                 res.innerHTML = "Não Vota."               
-        }   else if (voto < 18 || voto >= 65){
+        }   else if (idade < 18 || idade >= 65){
                 res.innerHTML = 'Voto opcional. Se desejar votar, leve o título de eleitor e documento de identificação.'
         }   else {
                 res.innerHTML = "Voto Obrigatório. Leve o título de eleitor e documento de identificação."
         }
-        }
+            }
+            }
+ 
+
     </script>
 </body>
 </html>
+
